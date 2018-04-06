@@ -19,6 +19,5 @@ public class AnnMainApp {
             TeacherService service = context.getBean(TeacherService.class);
             System.out.println(service.hashCode());
         });
-
     }
 }

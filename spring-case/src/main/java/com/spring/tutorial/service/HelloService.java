@@ -19,4 +19,16 @@ public class HelloService {
     public void getMessage() {
         System.out.println("Your Message : " + message);
     }
+
+    HelloService() {
+        System.out.println("construct method is conducting...");
+    }
+
+    public void init() {
+        System.out.println("helloService is init...");
+    }
+
+    public void destroy() {
+        System.out.println("helloService is to be destroy...");
+    }
 }

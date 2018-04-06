@@ -5,11 +5,48 @@
        xsi:schemaLocation = "http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id = "helloService" class = "com.spring.tutorial.service.HelloService" scope="prototype">
+    <bean id="helloService" class="com.spring.tutorial.service.HelloService"
+          init-method="init" destroy-method="destroy" lazy-init="true">
         <property name = "message" value = "Hello World!" />
     </bean>
     <bean id="lifeService" class="com.spring.tutorial.service.LifeService" lazy-init="true"/>
     <bean id = "studyService" class = "com.spring.tutorial.service.StudyService" lazy-init="true" >
     </bean>
+    <bean id="initHelloService" class="com.spring.tutorial.postProcessor.InitHelloService">
+    </bean>
+    <bean id="subHelloService" class="com.spring.tutorial.service.SubHelloService">
+    </bean>
+    <bean id="helloWorld" class="com.spring.tutorial.parentInXml.HelloWorld">
+        <property name="message1" value="hello,world!"/>
+        <property name="message2" value="hello, second world!"/>
+    </bean>
+    <bean id="helloIndia" class="com.spring.tutorial.parentInXml.HelloIndia" parent="helloWorld">
+        <property name="message1" value="hello,india"/>
+        <property name="message3" value="namaste india"/>
+    </bean>
 
+    <bean id="helloUK" class="com.spring.tutorial.parentInXml.HelloUK" parent="helloWorld">
+        <property name="message1" value="hello,china"/>
+        <property name="message3" value="hello,beijing"/>
+    </bean>
+
+    <bean id="libraryService" class="com.spring.tutorial.service.LibraryService">
+        <property name="name" value="pudong"/>
+    </bean>
+
+    <bean id="textEditor" class="com.spring.tutorial.di.constructor_based.TextEditor">
+        <constructor-arg ref="spellChecker"/>
+    </bean>
+
+    <!-- Definition for spellChecker bean -->
+    <bean id="spellChecker" class="com.spring.tutorial.di.SpellChecker"/>
+
+    <bean id="textEditorSet" class="com.spring.tutorial.di.set_based.TextEditorSet">
+        <property name="spellChecker" ref="spellChecker"/>
+    </bean>
+
+    <bean id="moreParamDI" class="com.spring.tutorial.di.constructor_based.MoreParamDI">
+        <constructor-arg type="java.lang.String" value="asaland"/>
+        <constructor-arg type='int' value="3"/>
+    </bean>
 </beans>

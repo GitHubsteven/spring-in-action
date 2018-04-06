@@ -8,4 +8,8 @@ package com.spring.tutorial.service;
  */
 public class LifeService {
     private HelloService helloService;
+
+    public void tellStatus() {
+        System.out.println("I am in life status, no work, no study ...");
+    }
 }
