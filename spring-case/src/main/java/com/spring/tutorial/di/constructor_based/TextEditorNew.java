@@ -2,13 +2,13 @@ package com.spring.tutorial.di.constructor_based;
 
 import com.spring.tutorial.di.SpellChecker;
 
-public class TextEditor {
+public class TextEditorNew {
     private SpellChecker spellChecker;
     private String name;
 
-    public TextEditor(SpellChecker spellChecker) {
-        System.out.println("Inside TextEditor constructor.");
+    public TextEditorNew setSpellChecker(SpellChecker spellChecker) {
         this.spellChecker = spellChecker;
+        return this;
     }
 
     public SpellChecker getSpellChecker() {
@@ -19,7 +19,7 @@ public class TextEditor {
         return name;
     }
 
-    public TextEditor setName(String name) {
+    public TextEditorNew setName(String name) {
         this.name = name;
         return this;
     }

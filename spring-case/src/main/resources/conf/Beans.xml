@@ -1,16 +1,17 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 
-<beans xmlns = "http://www.springframework.org/schema/beans"
-       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation = "http://www.springframework.org/schema/beans
-   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" default-lazy-init="true">
 
     <bean id="helloService" class="com.spring.tutorial.service.HelloService"
-          init-method="init" destroy-method="destroy" lazy-init="true">
+          init-method="init" destroy-method="destroy">
         <property name = "message" value = "Hello World!" />
     </bean>
-    <bean id="lifeService" class="com.spring.tutorial.service.LifeService" lazy-init="true"/>
-    <bean id = "studyService" class = "com.spring.tutorial.service.StudyService" lazy-init="true" >
+    <bean id="lifeService" class="com.spring.tutorial.service.LifeService"/>
+    <bean id="studyService" class="com.spring.tutorial.service.StudyService">
     </bean>
     <bean id="initHelloService" class="com.spring.tutorial.postProcessor.InitHelloService">
     </bean>
@@ -49,4 +50,63 @@
         <constructor-arg type="java.lang.String" value="asaland"/>
         <constructor-arg type='int' value="3"/>
     </bean>
+    <!--MoreParamDISet, init by setter mehtod-->
+    <bean id="moreParamDISet" class="com.spring.tutorial.di.set_based.MoreParamDISet"
+          p:name="asaland"
+          p:age="3"
+          p:spellChecker-ref="spellChecker"
+    />
+    <!-- Definition for textEditor bean using inner bean -->
+    <bean id="textEditorSet1" class="com.spring.tutorial.di.set_based.TextEditorSet">
+        <property name="spellChecker">
+            <bean class="com.spring.tutorial.di.SpellChecker"/>
+        </property>
+    </bean>
+
+    <bean id="javaCollection" class="com.spring.tutorial.di.inject_collection.JavaCollection">
+        <property name="addressList">
+            <list>
+                <value>INDIA</value>
+                <value>Pakistan</value>
+                <value>USA</value>
+                <value>USA</value>
+            </list>
+
+        </property>
+        <property name="addressSet">
+            <set>
+                <value>INDIA</value>
+                <value>Pakistan</value>
+                <value>USA</value>
+                <value>USA</value>
+            </set>
+        </property>
+        <property name="addressMap">
+            <map>
+                <entry key="1" value="INDIA"/>
+                <entry key="2" value="Pakistan"/>
+                <entry key="3" value="USA"/>
+                <entry key="4" value="USA"/>
+            </map>
+        </property>
+        <property name="addressProp">
+            <props>
+                <prop key="one">INDIA</prop>
+                <prop key="one">INDIA</prop>
+                <prop key="two">Pakistan</prop>
+                <prop key="three">USA</prop>
+                <prop key="four">USA</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="beanCollection" class="com.spring.tutorial.di.inject_collection.BeanCollection">
+        <property name="special" value=""/>
+        <property name="beanList">
+            <list>
+                <ref bean="moreParamDI"/>
+            </list>
+        </property>
+    </bean>
+
 </beans>
