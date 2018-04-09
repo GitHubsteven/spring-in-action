@@ -18,6 +18,7 @@
         <module>spring-hibernate</module>
         <module>spring-mybatis</module>
         <module>spring-utils</module>
+        <module>spring-schedule</module>
     </modules>
 
     <dependencies>

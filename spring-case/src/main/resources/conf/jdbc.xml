@@ -17,4 +17,13 @@
     <bean id = "studentJDBCTemplate" class="com.spring.tutorial.jdbc.StudentJDBCTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
+    <bean id = "stuMarksTraTemplate" class="com.spring.tutorial.jdbc.StuMarksTraTemplate">
+        <property name="dataSource" ref="dataSource"/>
+        <property name = "transactionManager" ref = "transactionManager" />
+    </bean>
+
+    <bean id="transactionManager" class = "org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name = "dataSource"  ref = "dataSource" />
+    </bean>
 </beans>
