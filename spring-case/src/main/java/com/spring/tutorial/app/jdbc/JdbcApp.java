@@ -21,9 +21,9 @@ public class JdbcApp {
         StudentJDBCTemplate studentJDBCTemplate =
                 (StudentJDBCTemplate)context.getBean("studentJDBCTemplate");
         System.out.println("------Records Creation--------" );
-        studentJDBCTemplate.create("chris", 11);
-//        studentJDBCTemplate.create("Nuha", 2);
-//        studentJDBCTemplate.create("Ayan", 15);
+//        studentJDBCTemplate.create("chris", 11);
+        studentJDBCTemplate.create("Nuha", 2);
+        studentJDBCTemplate.create("Ayan", 15);
 
         System.out.println("------Listing Multiple Records--------" );
         List<Student> students = studentJDBCTemplate.listStudents();
