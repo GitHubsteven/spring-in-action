@@ -1,9 +1,15 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" default-lazy-init="true">
+<beans xmlns = "http://www.springframework.org/schema/beans"
+        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:tx = "http://www.springframework.org/schema/tx"
+        xmlns:aop = "http://www.springframework.org/schema/aop"
+        xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/tx
+   http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+   http://www.springframework.org/schema/aop
+   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" default-lazy-init="true">
 
     <bean id = "dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
@@ -26,4 +32,26 @@
     <bean id="transactionManager" class = "org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name = "dataSource"  ref = "dataSource" />
     </bean>
+
+    <tx:advice id = "txAdvice" transaction-manager = "transactionManager">
+        <tx:attributes>
+            <tx:method name="create"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config>
+        <aop:pointcut id="createOperation" expression="execution(* com.spring.tutorial.jdbc.StuMarksTraDecTemp.create(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="createOperation"/>
+    </aop:config>
+
+    <bean id="stuMarksTraDecTemp" class="com.spring.tutorial.jdbc.StuMarksTraDecTemp">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--When You service class implements some interface, spring by default takes proxy by JDK, that's why you get that error,
+     so you can solve that problem whether using @Autowired over the interface or enabling the CGLIB proxy.-->
+    <tx:annotation-driven proxy-target-class="true"
+                          transaction-manager="transactionManager" />
+
+
 </beans>
