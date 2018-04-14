@@ -14,6 +14,14 @@
         <property name="name" value="Generic Text Editor"/>
     </bean>
 
+    <bean id="textEditorByType" class="com.spring.tutorial.di.constructor_based.TextEditorNew" autowire="byType">
+        <property name="name" value="Generic Text Editor"/>
+    </bean>
+
+    <bean id="textEditorByCon" class="com.spring.tutorial.di.constructor_based.TextEditor" autowire="constructor">
+        <property name="name" value="Generic Text Editor"/>
+    </bean>
+
     <!-- Definition for spellChecker bean -->
     <bean id="spellChecker" class="com.spring.tutorial.di.SpellChecker"/>
 
