@@ -24,7 +24,7 @@ public class ConnectUtil {
             connection = DriverManager.getConnection(url, userName, password);
             return connection;
         } catch (ClassNotFoundException | SQLException e) {
-            logger.error("error when build connection", e);
+           e.printStackTrace();
         }
         return null;
     }

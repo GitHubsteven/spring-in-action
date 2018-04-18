@@ -16,7 +16,7 @@ import java.sql.SQLException;
  */
 public class StudentOperate {
 
-    StudentModel getStudent(Long id) {
+    public StudentModel getStudent(Long id) {
         String sql = "select * from student where id = ?";
         PreparedStatement preparedStatement = null;
         Connection connection = ConnectUtil.getConnection();
@@ -35,6 +35,7 @@ public class StudentOperate {
                 student.setAge(age);
                 student.setName(name);
             }
+            ConnectUtil.close(resultSet,preparedStatement,connection);
         } catch (SQLException e) {
             e.printStackTrace();
         }
