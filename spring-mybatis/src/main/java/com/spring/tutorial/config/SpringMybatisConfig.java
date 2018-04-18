@@ -1,5 +1,7 @@
 package com.spring.tutorial.config;
 
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +18,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 @ComponentScan(value = "com.spring.tutorial")
+@MapperScan(value = "com.spring.tutorial")
 public class SpringMybatisConfig {
     @Bean
     DataSource dataSource(){
@@ -29,5 +32,11 @@ public class SpringMybatisConfig {
     @Bean
     JdbcTemplate jdbcTemplate(){
         return new JdbcTemplate(dataSource());
+    }
+    @Bean
+    SqlSessionFactoryBean sqlSessionFactoryBean(){
+        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+        sqlSessionFactoryBean.setDataSource(dataSource());
+        return sqlSessionFactoryBean;
     }
 }
