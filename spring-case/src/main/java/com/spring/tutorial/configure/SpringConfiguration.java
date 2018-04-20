@@ -1,5 +1,6 @@
 package com.spring.tutorial.configure;
 
+
 import com.spring.tutorial.jdbc.StudentJDBCTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,7 +21,15 @@ import javax.sql.DataSource;
  * This annotation is used on classes which define beans.
  * @Configuration is an analog for XML configuration file – it is configuration using Java class.
  * Java class annotated with @Configuration is a configuration by itself and will have methods to instantiate and configure the dependencies.
+ *
+ * @Lazy
+ * This annotation is used on component classes. By default all autowired dependencies are created and configured at startup.
+ * But if you want to initialize a bean lazily, you can use @Lazy annotation over the class.
+ * This means that the bean will be created and initialized only when it is first requested for.
+ * You can also use this annotation on @Configuration classes. This indicates that all @Bean methods within that @Configuration should be lazily initialized.
  */
+
+@Lazy
 @Configuration
 @ComponentScan("com.spring.tutorial")
 public class SpringConfiguration {
