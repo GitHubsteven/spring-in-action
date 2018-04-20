@@ -1,6 +1,6 @@
 package com.spring.tutorial.app;
 
-import com.spring.tutorial.service.HelloService;
+import com.spring.tutorial.service.activity.HelloService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

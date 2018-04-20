@@ -1,4 +1,4 @@
-package com.spring.tutorial.service;
+package com.spring.tutorial.service.activity;
 
 import org.springframework.stereotype.Service;
 
@@ -11,6 +11,11 @@ import org.springframework.stereotype.Service;
 @Service("helloService")
 public class HelloService {
     private String message;
+
+    public void hello(){
+        System.out.println("hello ...");
+    }
+
 
     public void setMessage(String message) {
         this.message = message;

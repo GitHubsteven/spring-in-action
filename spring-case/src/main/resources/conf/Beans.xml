@@ -6,16 +6,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" default-lazy-init="true">
 
-    <bean id="helloService" class="com.spring.tutorial.service.HelloService"
+    <bean id="helloService" class="com.spring.tutorial.service.activity.HelloService"
           init-method="init" destroy-method="destroy">
         <property name = "message" value = "Hello World!" />
     </bean>
-    <bean id="lifeService" class="com.spring.tutorial.service.LifeService"/>
-    <bean id="studyService" class="com.spring.tutorial.service.StudyService">
+    <bean id="lifeService" class="com.spring.tutorial.service.activity.LifeService"/>
+    <bean id="studyService" class="com.spring.tutorial.service.activity.StudyService">
     </bean>
     <bean id="initHelloService" class="com.spring.tutorial.postProcessor.InitHelloService">
     </bean>
-    <bean id="subHelloService" class="com.spring.tutorial.service.SubHelloService">
+    <bean id="subHelloService" class="com.spring.tutorial.service.activity.SubHelloService">
     </bean>
     <bean id="helloWorld" class="com.spring.tutorial.parentInXml.HelloWorld">
         <property name="message1" value="hello,world!"/>
@@ -31,7 +31,7 @@
         <property name="message3" value="hello,beijing"/>
     </bean>
 
-    <bean id="libraryService" class="com.spring.tutorial.service.LibraryService">
+    <bean id="libraryService" class="com.spring.tutorial.service.activity.LibraryService">
         <property name="name" value="pudong"/>
     </bean>
 
