@@ -3,8 +3,6 @@ package com.spring.tutorial.service.activity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.InitBinder;
 
-import javax.annotation.PreDestroy;
-
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Author rongbin.xie
@@ -40,7 +38,7 @@ public class StudyService {
         System.out.println("hello, study!");
     }
 
-    @PreDestroy
+//    @PreDestroy
     public void destroy() {
         System.out.println("destroy ...");
     }

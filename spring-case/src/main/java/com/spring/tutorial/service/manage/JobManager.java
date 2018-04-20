@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.util.Map;
 
@@ -43,9 +44,15 @@ public class JobManager {
 
     public void introduceJob() {
         jobs.forEach((name, service) -> {
-
             System.out.println("============" + name);
             service.whatsWork();
         });
+        System.out.println(1 /0);
     }
+
+    @ExceptionHandler(Exception.class)
+    public void handleExc() {
+        System.out.println("catch the exception");
+    }
+
 }

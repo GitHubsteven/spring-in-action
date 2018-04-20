@@ -1,6 +1,7 @@
 package com.spring.tutorial.lifeCycle;
 
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
  * @Description:
  * @Date: Created at 15:59 2018/4/5.
  */
+@Lazy
 @Component
 public class InitExampleBean implements InitializingBean {
     @Override

@@ -1,5 +1,6 @@
 package com.spring.tutorial.ctrl;
 
+import com.spring.tutorial.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(maxAge = 3600)
 @Controller
 @RequestMapping(value = "/spring-case/student")
-public class StudentController {
+public class StudentController extends BaseController {
 //    private String JSESSIONID= "418AB76CD83EF94U85YD34W";
 
     @RequestMapping(value = "/get-student", method = RequestMethod.GET)
@@ -36,7 +37,8 @@ public class StudentController {
      * @GetMapping is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.GET)
      */
     @GetMapping("/get-report")
-    public void getReport() { }
+    public void getReport() {
+    }
 
     /**
      * Composed @RequestMapping Variants
@@ -47,7 +49,13 @@ public class StudentController {
      * These annotations can be used with Spring MVC and Spring WebFlux.
      */
     @RequestMapping(value = "", method = RequestMethod.TRACE)
-    public void recRequest() { }
+    public void recRequest() {
+    }
 
+    // TODO: 2018/4/20 temporarily I have no idea to use
+    @ExceptionHandler({NullPointerException.class, IllegalArgumentException.class})
+    public void handleExc() {
+        _$.error("error is handled");
+    }
 
 }

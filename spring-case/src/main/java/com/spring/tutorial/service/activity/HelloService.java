@@ -26,7 +26,7 @@ public class HelloService {
     }
 
     HelloService() {
-        System.out.println("construct method is conducting...");
+//        System.out.println("construct method is conducting...");
     }
 
     public void init() {
