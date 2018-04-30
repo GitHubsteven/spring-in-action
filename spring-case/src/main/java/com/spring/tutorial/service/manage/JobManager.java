@@ -1,6 +1,8 @@
 package com.spring.tutorial.service.manage;
 
 import com.spring.tutorial.service.bean.annotation.IWorkService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,6 +19,8 @@ import java.util.Map;
  */
 @Service
 public class JobManager {
+
+    private static final Logger _$ = LoggerFactory.getLogger(JobManager.class);
     @Value("PuDong")
     private String area;
     /**
@@ -39,6 +43,7 @@ public class JobManager {
 
 
     public void checkTeacher() {
+        _$.info("log系统测试");
         workService.whatsWork();
     }
 

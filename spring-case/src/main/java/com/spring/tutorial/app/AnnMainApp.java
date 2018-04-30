@@ -15,7 +15,7 @@ public class AnnMainApp {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class);
         // TODO: 2018/4/20 开始测试所有的声明吧
         JobManager jobManager = context.getBean(JobManager.class);
-//        jobManager.checkTeacher();
-        jobManager.introduceJob();
+        jobManager.checkTeacher();
+//        jobManager.introduceJob();
     }
 }
