@@ -1,7 +1,7 @@
 package com.spring.tutorial.app;
 
 import com.spring.tutorial.configure.SpringConfiguration;
-import com.spring.tutorial.service.manage.JobManager;
+import com.spring.tutorial.service.bean.annotation.JavaDevService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -13,9 +13,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class AnnMainApp {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class);
-        // TODO: 2018/4/20 开始测试所有的声明吧
-        JobManager jobManager = context.getBean(JobManager.class);
+        JavaDevService javaDevService = context.getBean(JavaDevService.class);
 //        jobManager.checkTeacher();
-        jobManager.introduceJob();
+        javaDevService.knowBasic();
     }
 }

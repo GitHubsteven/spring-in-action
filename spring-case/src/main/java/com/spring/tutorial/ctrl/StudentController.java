@@ -55,7 +55,7 @@ public class StudentController extends BaseController {
     // TODO: 2018/4/20 temporarily I have no idea to use
     @ExceptionHandler({NullPointerException.class, IllegalArgumentException.class})
     public void handleExc() {
-        _$.error("error is handled");
+//        _$.error("error is handled");
     }
 
 }

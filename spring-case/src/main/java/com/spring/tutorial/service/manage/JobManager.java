@@ -1,6 +1,8 @@
 package com.spring.tutorial.service.manage;
 
 import com.spring.tutorial.service.bean.annotation.IWorkService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,6 +19,10 @@ import java.util.Map;
  */
 @Service
 public class JobManager {
+
+    private final Logger logger = LoggerFactory.getLogger(JobManager.class);
+
+
     @Value("PuDong")
     private String area;
     /**
@@ -43,11 +49,10 @@ public class JobManager {
     }
 
     public void introduceJob() {
+        logger.info("========================give a log============================");
         jobs.forEach((name, service) -> {
-            System.out.println("============" + name);
             service.whatsWork();
         });
-        System.out.println(1 /0);
     }
 
     @ExceptionHandler(Exception.class)

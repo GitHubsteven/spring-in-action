@@ -12,6 +12,13 @@ import org.springframework.stereotype.Component;
 public class LifeService {
     private HelloService helloService;
 
+    public LifeService(){
+    }
+
+    public LifeService(String message){
+        System.out.println(message);
+    }
+
     public void life(){
         System.out.println("hello, life");
     }

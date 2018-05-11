@@ -17,7 +17,6 @@ public class LogTest extends BaseServiceTest {
         _$.info("info");
         _$.error("error");
         _$.debug("debug");
-        _$.trace("trace");
 
     }
 }
