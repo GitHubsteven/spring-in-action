@@ -1,7 +1,7 @@
 package com.spring.tutorial.app;
 
 import com.spring.tutorial.configure.SpringConfiguration;
-import com.spring.tutorial.service.manage.JobManager;
+import com.spring.tutorial.service.bean.annotation.JavaDevService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
