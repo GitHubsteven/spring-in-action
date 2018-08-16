@@ -1,7 +1,8 @@
 package com.spring.tutorial.app.repeat;
 
 import com.spring.tutorial.repeat.configure.DiConfiguration;
-import com.spring.tutorial.repeat.inbound.WmsInBlankService;
+import com.spring.tutorial.repeat.scene.spring.lifecycle.SubClass;
+import com.spring.tutorial.repeat.scene.spring.lifecycle.SuperClass;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -16,7 +17,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Application {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DiConfiguration.class);
-        WmsInBlankService bean = context.getBean(WmsInBlankService.class);
-        bean.method();
+        SubClass bean = context.getBean(SubClass.class);
+        bean.subCommonMethod();
     }
 }

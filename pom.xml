@@ -26,6 +26,7 @@
         <module>single-hibernate</module>
         <module>web-core</module>
         <module>spring-log-system</module>
+        <module>spring-dubbo</module>
     </modules>
 
     <dependencyManagement>
