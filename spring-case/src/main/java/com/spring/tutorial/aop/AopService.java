@@ -1,5 +1,8 @@
 package com.spring.tutorial.aop;
 
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
+
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Author rongbin.xie
@@ -12,9 +15,9 @@ public class AopService {
         System.out.println("operate 1 running ...");
     }
 
-    public void operate2() {
+    public Integer operate2() {
         System.out.println("operate 2 running ...");
-        throw new RuntimeException("test exception!");
+        return 2;
     }
 
     public Integer operate3() {

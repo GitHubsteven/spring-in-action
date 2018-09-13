@@ -8,10 +8,12 @@
 
     <bean id="helloService" class="com.spring.tutorial.service.activity.HelloService"
           init-method="init" destroy-method="destroy">
-        <property name = "message" value = "Hello World!" />
+        <property name="message" value="Hello World!"/>
     </bean>
     <bean id="lifeService" class="com.spring.tutorial.service.activity.LifeService"/>
     <bean id="studyService" class="com.spring.tutorial.service.activity.StudyService">
+        <constructor-arg ref="helloService"/>
+        <constructor-arg ref="sportService"/>
     </bean>
     <bean id="initHelloService" class="com.spring.tutorial.postProcessor.InitHelloService">
     </bean>
@@ -37,6 +39,8 @@
 
     <bean id="textEditor" class="com.spring.tutorial.di.constructor_based.TextEditor">
         <constructor-arg ref="spellChecker"/>
+    </bean>
+    <bean id="sportService" class="com.spring.tutorial.service.activity.SportService">
     </bean>
 
     <!-- Definition for spellChecker bean -->

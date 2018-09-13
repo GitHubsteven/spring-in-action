@@ -2,7 +2,9 @@ package com.spring.tutorial.aop.declare;
 
 import org.aspectj.lang.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
@@ -12,6 +14,9 @@ import java.util.Date;
  */
 @Aspect
 public class Logging {
+
+    //Here the first wildcard matches any return value, the second matches any method name,
+    // and the (..) pattern matches any number of parameters (zero or more).
 
     @Pointcut("execution(* com.spring.tutorial.aop.AopService.*(..))")
     public void businessService() {
@@ -36,6 +41,11 @@ public class Logging {
 
     @AfterReturning(value = "businessService()", returning = "rstVal")
     public void afterReturnAdvisor(Object rstVal) {
+        List<Object> real = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            real.add(rstVal);
+        }
+        rstVal = real;
         System.out.println("return result val is: " + rstVal);
     }
 
