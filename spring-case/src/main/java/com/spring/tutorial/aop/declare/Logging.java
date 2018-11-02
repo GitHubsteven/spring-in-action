@@ -49,8 +49,20 @@ public class Logging {
         System.out.println("return result val is: " + rstVal);
     }
 
+    @AfterReturning(value = "businessService()",returning = "rstVal")
+    public void afterReturnAdvisor1(Object rstVal) {
+        List<Object> real = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            real.add(rstVal);
+        }
+        rstVal = real;
+        System.out.println("return result val is: " + rstVal);
+    }
+
+
     @AfterThrowing(value = "businessService()", throwing = "ex")
     public void afterExceptionAdvisor(Exception ex) {
+        ex = new NullPointerException();
         System.out.println("Exception occurs:" + ex.getMessage());
     }
 }

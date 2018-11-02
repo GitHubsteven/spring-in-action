@@ -14,7 +14,7 @@ public class AopDecApp {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("conf/aop-dec.xml");
         AopService service = (AopService) context.getBean("aopService");
-        Integer result = service.operate2();
+        Integer result = service.operate2(2);
         System.out.println(result);
     }
 }

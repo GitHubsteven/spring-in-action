@@ -15,9 +15,12 @@ public class AopService {
         System.out.println("operate 1 running ...");
     }
 
-    public Integer operate2() {
+    public Integer operate2(int x) {
         System.out.println("operate 2 running ...");
-        return 2;
+        if (x == 2) {
+            throw new RuntimeException("exception test!");
+        }
+        return x;
     }
 
     public Integer operate3() {

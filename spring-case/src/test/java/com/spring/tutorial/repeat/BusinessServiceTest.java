@@ -4,12 +4,9 @@ import com.spring.tutorial.repeat.scene.BaseSceneService;
 import com.spring.tutorial.repeat.scene.SceneOneService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import test.spring.tutorial.BaseServiceTest;
 
 import java.util.Map;
-
-import static org.junit.Assert.*;
 
 public class BusinessServiceTest extends BaseServiceTest {
 
