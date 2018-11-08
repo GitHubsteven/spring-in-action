@@ -13,4 +13,6 @@ import lombok.Setter;
 @Getter
 public class UserContext {
     private String name = "default";
+
+    UserContext subUser;
 }
