@@ -27,6 +27,7 @@
         <module>web-core</module>
         <module>spring-log-system</module>
         <module>spring-dubbo</module>
+        <module>feign-consum-api</module>
     </modules>
 
     <dependencyManagement>
@@ -263,12 +264,55 @@
                 <artifactId>aspectjweaver</artifactId>
                 <version>1.5.4</version>
             </dependency>
-            
+
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>1.16.22</version>
             </dependency>
+
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-okhttp</artifactId>
+                <version>9.3.1</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-gson</artifactId>
+                <version>9.3.1</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-slf4j</artifactId>
+                <version>9.3.1</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-core -->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-core</artifactId>
+                <version>9.3.1</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>1.2.3</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all -->
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-all</artifactId>
+                <version>1.3</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-ribbon -->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-ribbon</artifactId>
+                <version>9.3.1</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 </project>
