@@ -25,4 +25,7 @@ public interface BookClient {
     @RequestLine("POST")
     @Headers("Content-Type: application/json")
     void create(Book book);
+
+    @RequestLine("POST /soms/orderservice/order")
+    void creatOrder(Object order);
 }
