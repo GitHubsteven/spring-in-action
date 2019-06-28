@@ -7,6 +7,9 @@ import feign.gson.GsonEncoder;
 import feign.okhttp.OkHttpClient;
 import feign.ribbon.RibbonClient;
 import feign.slf4j.Slf4jLogger;
+import org.springframework.stereotype.Service;
+
+import javax.xml.ws.ServiceMode;
 
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
@@ -14,6 +17,7 @@ import feign.slf4j.Slf4jLogger;
  * @Description:
  * @Date: Created at 16:17 2019/6/25.
  */
+@Service
 public class ClientFactory {
 
     public static BookClient getBookClient() {

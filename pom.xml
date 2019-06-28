@@ -16,13 +16,11 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-case</module>
-        <module>spring-hibernate</module>
         <module>spring-mybatis</module>
         <module>spring-utils</module>
         <module>spring-schedule</module>
         <module>spring-web</module>
         <module>single-jdbc</module>
-        <module>single-mybatis</module>
         <module>single-hibernate</module>
         <module>web-core</module>
         <module>spring-log-system</module>
