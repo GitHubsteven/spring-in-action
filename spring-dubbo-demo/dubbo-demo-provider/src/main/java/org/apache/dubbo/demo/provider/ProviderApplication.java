@@ -3,7 +3,6 @@ package org.apache.dubbo.demo.provider;
 import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.ServiceConfig;
-import org.apache.dubbo.demo.provider.service.DemoServiceImpl;
 import org.apache.dubbo.demo.service.DemoService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -17,7 +16,7 @@ import java.io.IOException;
  */
 public class ProviderApplication {
     public static void main(String[] args) throws IOException {
-        provideByBean();
+        xmlProvider();
     }
 
     private static void provideByBean() throws IOException {
@@ -46,5 +45,13 @@ public class ProviderApplication {
         service.setRef(new DemoServiceImpl());
         service.export();
         System.in.read();
+    }
+
+    private static void xmlProvider() throws IOException {
+        System.setProperty("java.net.preferIPv4Stack", "true");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"META-INF/spring/dubbo-demo-provider.xml"});
+        context.start();
+        System.out.println("Provider started.");
+        System.in.read(); // press any key to exit
     }
 }

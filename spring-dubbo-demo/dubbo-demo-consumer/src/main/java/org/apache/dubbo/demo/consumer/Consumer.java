@@ -14,7 +14,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Consumer {
     public static void main(String[] args) throws Exception {
-        consumByBean();
+        xmlConsumer();
     }
 
     private static void consumByBean() {

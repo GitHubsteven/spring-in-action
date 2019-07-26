@@ -1,8 +1,9 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
-       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+         http://code.alibabatech.com/schema/dubbo
+     http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <!-- provider's application name, used for tracing dependency relationship -->
     <dubbo:application name="demo-provider"/>
@@ -11,7 +12,7 @@
     <!-- use dubbo protocol to export service on port 20880 -->
     <dubbo:protocol name="dubbo" port="20990"/>
     <!-- service implementation, as same as regular local bean -->
-    <bean id="demoService" class="org.apache.dubbo.demo.provider.service.DemoServiceImpl"/>
+    <bean id="demoService" class="org.apache.dubbo.demo.provider.DemoServiceImpl"/>
     <!-- declare the service interface to be exported -->
     <dubbo:service interface="org.apache.dubbo.demo.service.DemoService" ref="demoService"/>
 </beans>
