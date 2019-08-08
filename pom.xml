@@ -27,6 +27,7 @@
         <module>feign-consum-api</module>
         <module>spring-dubbo-demo</module>
         <module>spring-service</module>
+        <module>spring-api-parent</module>
     </modules>
 
     <dependencyManagement>
@@ -313,14 +314,9 @@
             </dependency>
 
             <dependency>
-                <groupId>org.apache.zookeeper</groupId>
-                <artifactId>zookeeper</artifactId>
-                <version>3.3.3</version>
-            </dependency>
-            <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>dubbo</artifactId>
-                <version>2.5.6</version>
+                <version>2.5.7</version>
             </dependency>
             <dependency>
                 <groupId>com.github.sgroschupf</groupId>

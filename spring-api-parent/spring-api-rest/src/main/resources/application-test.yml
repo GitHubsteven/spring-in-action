@@ -1,0 +1,6 @@
+host:
+  name: spring-api-rest-test
+
+server:
+  port: 8090
+  create-time: 2019-08-08

@@ -1,0 +1,9 @@
+host:
+  name: spring-api-rest-prod
+
+server:
+  port: 8090
+  create-time: 2019-08-08
+
+
+

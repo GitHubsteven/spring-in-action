@@ -1,31 +1,17 @@
-Reference Doc：[Apache dubbo](https://dubbo.apache.org/en-us/docs/user/quick-start.html)
+##### 环境
+| 角色  | 作用
+|---|---|
+| spring  | java bean 管理
+| dubbo  | 接口网络通信实现，服务定义和实现
+| zookeeper  | dubbo服务的注册和管理
+ 
+#### zookeeper
+##### 是什么？
+>ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services
 
-##### Notice 
-Apache Dubbo official document occurs error, are you kidding me?
-```
- Configuration problem: Unable to locate Spring NamespaceHandler for XML schema namespace [http://dubbo.apache.org/schema/dubbo]
-```
-Reference Document: [Unable to locate Spring NamespaceHandler for XMLschemanamespace http://dubbo.apache.org/schema/dubbo](https://blog.csdn.net/niugang0920/article/details/81944865) 
-
-Seeing the spring.handlers
-```
-http\://code.alibabatech.com/schema/dubbo=com.alibaba.dubbo.config.spring.schema.DubboNamespaceHandler
-```
-the official document provider.xml code like the followings
-```
-<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
-       xmlns="http://www.springframework.org/schema/beans"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
-```
-Absolutely, spring can not understand the right dubbo namespace. Change the xmlns to the following code.
-```
-<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
-       xmlns="http://www.springframework.org/schema/beans"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
-         http://code.alibabatech.com/schema/dubbo
-     http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-```
-
+一个集中化注册和管理分布式服务的系统。服务提供者在这里注册服务，服务消费者在这里获取服务提供者
+信息，然后消费服务。
+##### 安装
+1. 安装好像挺简单的，安装好了，如果只是开发测试，就什么配置不需要改了，否则的话建议重新在conf文件夹中的zoo-sample.cf配置
+data和log的目录文件，具体的参考百度
+2. 启动bin/zkServer.cmd(windows)，就可以了，这样就有服务注册和管理中心。
