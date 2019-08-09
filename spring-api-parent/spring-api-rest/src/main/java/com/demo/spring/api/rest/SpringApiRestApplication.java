@@ -14,6 +14,6 @@ import org.springframework.context.annotation.ImportResource;
 @ImportResource("classpath:com.demo.spring.api.rest.service.*")
 public class SpringApiRestApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SpringApiRestApplication.class);
+        SpringApplication.run(SpringApiRestApplication.class, args);
     }
 }
