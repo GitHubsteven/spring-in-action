@@ -1,8 +1,9 @@
 host:
   name: spring-api-rest-dev
 
+# ${server.port}
 server:
-  port: ${server.port}
+  port: 8090
   create-time: 2019-08-08
 
 #  出现错误时,直接抛出异常
@@ -12,3 +13,18 @@ spring:
 #不要为我们工程中的资源文件建立映射
   resources:
     add-mappings: false
+  application:
+    name: spring-api-provider
+
+#eurake register center http://localhost:8761/eureka/
+eureka:
+  client:
+    service-url:
+      host-url: localhost:8761
+      defaultZone: http://${eureka.client.service-url.host-url}/eureka/
+
+
+
+
+
+

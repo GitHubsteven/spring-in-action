@@ -3,6 +3,7 @@ package com.demo.spring.api.rest;
 import com.demo.spring.api.rest.config.StartCommand;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.scheduling.annotation.EnableAsync;
 
@@ -15,6 +16,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @SpringBootApplication
 @ImportResource("classpath:com.demo.spring.api.rest.service.*")
 @EnableAsync
+@EnableDiscoveryClient
 public class SpringApiRestApplication {
     public static void main(String[] args) {
         new StartCommand(args);

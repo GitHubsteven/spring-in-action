@@ -1,3 +1,7 @@
+#### Reference Book
+1. 重新定义spring cloud实战-许进
+2. spring cloud微服务全栈与案例解析
+
 #### TODOS
 1. 为什么打包的时候执行如下代码不能动态改环境
     ```
@@ -18,10 +22,7 @@ SpringApplication.run(SpringApiRestApplication.class);
 忘记了把参数传进去，应该改成代码如下
 ```
 SpringApplication.run(SpringApiRestApplication.class,args);
-```
-   
-   
-   
+```   
 #### NOTES
 1. SpringApplication重启两次的问题
 

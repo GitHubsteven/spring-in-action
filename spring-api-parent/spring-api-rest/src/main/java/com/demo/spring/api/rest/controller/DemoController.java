@@ -33,7 +33,6 @@ public class DemoController implements IDemoService {
         this.config = config;
     }
 
-    @GetMapping("/hello")
     @Override
     public String hello() {
         return String.format("hello,%s, this is %s created at %s!", port, config.getName(), evn.getProperty("server.create-time"));
