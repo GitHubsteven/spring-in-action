@@ -20,7 +20,7 @@ public class DemonConsumerController {
     @GetMapping("/consume-hi")
     public String concat(@RequestParam("name") String name) {
 //        return "name";
-        String prefix = iDemoService.hello();
+        String prefix = iDemoService.hello(null);
         return prefix + name;
     }
 }

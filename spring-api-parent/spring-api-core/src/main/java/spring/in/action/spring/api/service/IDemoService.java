@@ -1,7 +1,11 @@
 package spring.in.action.spring.api.service;
 
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
@@ -13,5 +17,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public interface IDemoService {
 
     @GetMapping("/hello")
-    String hello();
+    String hello(@Validated @NotNull @RequestParam String name);
 }

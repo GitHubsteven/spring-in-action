@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import spring.in.action.spring.api.service.IDemoService;
 
@@ -34,7 +35,7 @@ public class DemoController implements IDemoService {
     }
 
     @Override
-    public String hello() {
-        return String.format("hello,%s, this is %s created at %s!", port, config.getName(), evn.getProperty("server.create-time"));
+    public String hello(@RequestParam String name) {
+        return String.format("hello,%s, this is %s(:%s) created at %s!", name, config.getName(), port, evn.getProperty("server.create-time"));
     }
 }

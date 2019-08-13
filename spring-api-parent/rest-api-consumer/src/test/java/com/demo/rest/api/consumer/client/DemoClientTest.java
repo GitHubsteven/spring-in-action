@@ -12,6 +12,6 @@ public class DemoClientTest extends ConsumerBaseTest {
 
     @Test
     public void hello() {
-        System.out.println(iDemoService.hello());
+        System.out.println(iDemoService.hello(null));
     }
 }

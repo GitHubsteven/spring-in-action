@@ -1,5 +1,6 @@
 package spring.in.action.spring.api.impl.service;
 
+import org.springframework.web.bind.annotation.RequestParam;
 import spring.in.action.spring.api.service.IDemoService;
 
 import javax.xml.ws.ServiceMode;
@@ -12,7 +13,7 @@ import javax.xml.ws.ServiceMode;
  */
 public class IDemoServiceImpl implements IDemoService {
     @Override
-    public String hello() {
+    public String hello(@RequestParam String name) {
         return "hello";
     }
 }

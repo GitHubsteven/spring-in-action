@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
  * @Description:
  * @Date: Created at 15:06 2019/8/9.
  */
-@ControllerAdvice
+//@ControllerAdvice
 public class GlobalExceptionHandler {
     private Logger logger =
             LoggerFactory.getLogger(GlobalExceptionHandler.class);
