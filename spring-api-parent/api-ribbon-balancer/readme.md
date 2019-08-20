@@ -1,5 +1,5 @@
-##### 如何实现Ribbon + RestTemplate
-1. 通过maven引入jar包
+##### Realize Ribbon + RestTemplate
+1. import jar by maven
 ```
   <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -7,9 +7,9 @@
             <version>1.4.0.RELEASE</version>
         </dependency>
 ```
-版本可变
+change the version to the corresponding your project
 
-2. 注入RestTemplate，可以在application，也可以在Controller，Service等@component类中
+2. inject RestTemplate in application，Controller，Service and some annotated by @component or @configuration
 ```
  @Bean
     @LoadBalanced
@@ -18,7 +18,7 @@
     }
 
 ```
-3. application 增加声明RobbinClient(xxx)，代码如下
+3. Add annotation RobbinClient(xxx) on application ，code like the following
 ```
 @SpringBootApplication
 @RibbonClient(name = "api-service", configuration = RibbonConfiguration.class)
@@ -34,14 +34,16 @@ public class RibbonBalancerApplication {
     }
 }
 ```
-4. 在application.yml中配置
+4. application.yml
 ```
+#define the rest api name
 spring:
   application:
     name: ribbon-consumer
 server:
   port: 8888
 
+#define the rest api name detail used to called by restTemplate
 ribbon-consumer:
   ribbon:
     eureka:
@@ -49,3 +51,23 @@ ribbon-consumer:
     listOfServers: localhost:8090,localhost:8091
     ServerListRefreshInterval: 15000
 ```
+Note: you have to define the rules of the spring-application-name for the usage of the restTemplate
+
+5. call the http request by the restTemplate
+```
+@RestController
+@RequestMapping("/ribbon")
+public class RibbonController {
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @GetMapping("/hi")
+    public String hi() {
+        //api-service
+        String info = restTemplate.getForObject("http://ribbon-consumer/demo/info", String.class);
+        return "hi, this is ribbon! " + info;
+    }
+}
+```
+
+Note: the service name is this spring application name here.
