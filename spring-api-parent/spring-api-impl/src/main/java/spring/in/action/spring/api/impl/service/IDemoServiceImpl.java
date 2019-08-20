@@ -16,4 +16,9 @@ public class IDemoServiceImpl implements IDemoService {
     public String hello(@RequestParam String name) {
         return "hello";
     }
+
+    @Override
+    public String info() {
+        return "info";
+    }
 }

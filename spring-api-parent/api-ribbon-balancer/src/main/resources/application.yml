@@ -1,0 +1,14 @@
+#define the rest api name
+spring:
+  application:
+    name: ribbon-consumer
+server:
+  port: 8888
+
+#define the rest api name detail used to called by restTemplate
+ribbon-consumer:
+  ribbon:
+    eureka:
+      enabled: false
+    listOfServers: localhost:8090,localhost:8091
+    ServerListRefreshInterval: 15000

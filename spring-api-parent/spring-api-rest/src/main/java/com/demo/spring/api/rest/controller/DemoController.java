@@ -38,4 +38,9 @@ public class DemoController implements IDemoService {
     public String hello(@RequestParam String name) {
         return String.format("hello,%s, this is %s(:%s) created at %s!", name, config.getName(), port, evn.getProperty("server.create-time"));
     }
+
+    @Override
+    public String info() {
+        return String.format("hello, this is %s(:%s) created at %s!", config.getName(), port, evn.getProperty("server.create-time"));
+    }
 }

@@ -1,6 +1,5 @@
 package spring.in.action.spring.api.service;
 
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,5 +16,8 @@ import javax.validation.constraints.NotNull;
 public interface IDemoService {
 
     @GetMapping("/hello")
-    String hello(@Validated @NotNull @RequestParam String name);
+    String hello(@NotNull @RequestParam String name);
+
+    @GetMapping("/info")
+    String info();
 }
