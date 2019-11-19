@@ -5,10 +5,10 @@ server:
   port: ${server.port}
   create-time: 2019-08-08
 
-# ³öÏÖ´íÎóÊ±,Ö±½ÓÅ×³öÒì³£
+# å‡ºç°é”™è¯¯æ—¶,ç›´æ¥æŠ›å‡ºå¼‚å¸¸
 spring:
   mvc:
     throw-exception-if-no-handler-found: true
-#²»ÒªÎªÎÒÃÇ¹¤³ÌÖĞµÄ×ÊÔ´ÎÄ¼ş½¨Á¢Ó³Éä
+#ä¸è¦ä¸ºæˆ‘ä»¬å·¥ç¨‹ä¸­çš„èµ„æºæ–‡ä»¶å»ºç«‹æ˜ å°„
   resources:
       add-mappings: false

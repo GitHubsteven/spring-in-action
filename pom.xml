@@ -8,6 +8,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring.version>5.0.4.RELEASE</spring.version>
+        <spring.in.action.version>1.0-SNAPSHOT</spring.in.action.version>
     </properties>
 
     <groupId>spring-in-action</groupId>
@@ -17,18 +18,37 @@
     <modules>
         <module>spring-case</module>
         <module>spring-mybatis</module>
-        <module>spring-utils</module>
-        <module>spring-schedule</module>
-        <module>spring-web</module>
+        <module>spring-common-utils</module>
+        <module>spring-single-schedule</module>
+        <module>spring-single-web</module>
         <module>single-jdbc</module>
         <module>single-hibernate</module>
-        <module>web-core</module>
+        <module>web-common-core</module>
         <module>spring-log-system</module>
         <module>feign-consum-api</module>
         <module>spring-dubbo-demo</module>
         <module>spring-service</module>
         <module>spring-api-parent</module>
+        <module>spring-common-bean</module>
     </modules>
+
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>Team Nexus Repository</name>
+            <url>http://10.0.0.59:8082/nexus/repository/public</url>
+            <!-- 开发者自己控制是否放开 -->
+            <!--<snapshots>-->
+            <!--<updatePolicy>always</updatePolicy>-->
+            <!--</snapshots>-->
+        </repository>
+
+        <!--        <repository>-->
+        <!--            <id>nexus-aliyun</id>-->
+        <!--            <name>Nexus aliyun</name>-->
+        <!--            <url>http://maven.aliyun.com/nexus/content/groups/public</url>-->
+        <!--        </repository>-->
+    </repositories>
 
     <dependencyManagement>
         <dependencies>
@@ -37,6 +57,12 @@
                 <groupId>commons-logging</groupId>
                 <artifactId>commons-logging</artifactId>
                 <version>1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>2.10.3</version>
+                <scope>compile</scope>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
@@ -257,12 +283,6 @@
                 <groupId>org.aspectj</groupId>
                 <artifactId>aspectjweaver</artifactId>
                 <version>1.9.1</version>
-            </dependency>
-
-            <dependency>
-                <groupId>aspectj</groupId>
-                <artifactId>aspectjweaver</artifactId>
-                <version>1.5.4</version>
             </dependency>
 
             <dependency>
