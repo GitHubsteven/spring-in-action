@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author rb.x
+ */
 @Repository
 public interface StudentModelMapper extends BaseDao {
     /**

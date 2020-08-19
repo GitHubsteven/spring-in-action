@@ -22,7 +22,6 @@
         <module>spring-single-schedule</module>
         <module>spring-single-web</module>
         <module>single-jdbc</module>
-        <module>single-hibernate</module>
         <module>web-common-core</module>
         <module>spring-log-system</module>
         <module>feign-consum-api</module>

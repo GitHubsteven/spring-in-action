@@ -7,5 +7,10 @@ package com.spring.tutorial.service.student;
  * @Date: Created at 15:43 2018/4/18.
  */
 public interface IStudentService {
+    /**
+     * 生成学生model
+     *
+     * @return 数量
+     */
     int createStudent();
 }
